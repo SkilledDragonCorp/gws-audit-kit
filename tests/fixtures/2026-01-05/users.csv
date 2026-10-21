@@ -1,0 +1,11 @@
+primaryEmail,name.fullName,isAdmin,isDelegatedAdmin,isEnrolledIn2Sv,isEnforcedIn2Sv,lastLoginTime,creationTime,suspended,archived,orgUnitPath
+admin@example.com,Admin Example,True,False,True,True,2026-01-30T10:00:00Z,2021-03-01T09:00:00Z,False,False,/
+alex@example.com,Alex Example,True,False,True,True,2026-01-31T10:00:00Z,2021-03-01T09:00:00Z,False,False,/
+blake@example.com,Blake Example,False,False,False,False,2026-01-29T10:00:00Z,2022-06-10T09:00:00Z,False,False,/
+casey@example.com,Casey Example,False,False,False,False,2026-01-28T10:00:00Z,2022-06-10T09:00:00Z,False,False,/
+devon@example.com,Devon Example,False,False,True,True,2026-01-27T10:00:00Z,2023-01-15T09:00:00Z,False,False,/
+emery@example.com,Emery Example,False,False,False,False,2026-01-02T10:00:00Z,2023-01-15T09:00:00Z,False,False,/
+frankie@example.com,Frankie Example,False,False,True,True,2026-01-30T10:00:00Z,2024-02-20T09:00:00Z,False,False,/
+frontdesk@example.com,Frontdesk Example,False,False,False,False,2025-06-01T10:00:00Z,2020-05-05T09:00:00Z,False,False,/
+gray@example.com,Gray Example,False,False,True,True,2026-01-30T10:00:00Z,2025-11-01T09:00:00Z,False,False,/
+former@example.com,Former Example,False,False,False,False,2025-02-01T10:00:00Z,2020-01-01T09:00:00Z,True,False,/

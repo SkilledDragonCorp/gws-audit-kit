@@ -1,0 +1,17 @@
+### example.com TXT
+Non-authoritative answer:
+example.com	text =
+
+	"v=spf1 include:_spf.google.com ~all"
+
+### _dmarc.example.com TXT
+Non-authoritative answer:
+_dmarc.example.com	text =
+
+	"v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@example.com"
+
+### _mta-sts.example.com TXT
+*** UnKnown can't find _mta-sts.example.com: Non-existent domain
+
+### _smtp._tls.example.com TXT
+*** UnKnown can't find _smtp._tls.example.com: Non-existent domain

@@ -1,0 +1,4 @@
+owner,file_id,name,type,grantee_type,role,grantee,modified,url
+alex@example.com,1FAKEshare0001,Joint proposal,application/vnd.google-apps.document,user,writer,contact@example.org,2026-01-10,https://docs.google.com/document/d/1FAKEshare0001/edit
+blake@example.com,1FAKEshare0002,Q4 receipts,application/vnd.google-apps.spreadsheet,user,reader,someone@gmail.com,2025-12-10,https://docs.google.com/document/d/1FAKEshare0002/edit
+casey@example.com,1FAKEshare0003,Roadmap,application/vnd.google-apps.presentation,domain,reader,example.net,2026-01-20,https://docs.google.com/document/d/1FAKEshare0003/edit

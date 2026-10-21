@@ -1,0 +1,37 @@
+# Audit output: real tenant data (emails, working file URLs, device IDs)
+snapshots/
+gws-audit-snapshots/
+*.csv
+findings.json
+gap-report.md
+diff.md
+dns.txt
+pull.log
+summary.txt
+!tests/fixtures/**/*.csv
+!tests/fixtures/**/dns.txt
+
+# Local config
+gws-audit.env
+.claude/settings.local.json
+
+# Credentials: never commit these, even by accident
+oauth2.txt
+oauth2service.json
+client_secrets.json
+application_default_credentials.json
+credentials.db
+*.pem
+*.p12
+*.key
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

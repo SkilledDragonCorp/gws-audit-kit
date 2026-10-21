@@ -1,0 +1,4 @@
+owner,internal_owner,shared_drive_id,file_id,type,name,created,modified,url
+alex@example.com,True,,1FAKEpublic0001,application/vnd.google-apps.document,Team handbook,2024-01-01,2025-11-01,https://docs.google.com/document/d/1FAKEpublic0001/edit
+blake@example.com,True,,1FAKEpublic0002,application/vnd.google-apps.spreadsheet,Price list,2024-03-01,2025-12-01,https://docs.google.com/document/d/1FAKEpublic0002/edit
+partner@example.org,False,,1FAKEexternal01,application/pdf,Partner brochure,2024-03-01,2025-12-01,https://docs.google.com/document/d/1FAKEexternal01/edit

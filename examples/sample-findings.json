@@ -1,0 +1,517 @@
+{
+  "counts": {
+    "critical": 1,
+    "high": 4,
+    "info": 1,
+    "low": 8,
+    "medium": 6
+  },
+  "edition": "starter",
+  "facts": {
+    "apps_authorized": [
+      "Acme Mail Assistant",
+      "Example Scheduler",
+      "Google Chrome",
+      "Sample PDF Toolkit"
+    ],
+    "dns_problems": [
+      "example.com: no MTA-STS",
+      "example.com: no TLS-RPT"
+    ],
+    "dormant_users": [
+      "frontdesk@example.com"
+    ],
+    "external_grantee_domains": [
+      "example.net",
+      "example.org",
+      "gmail.com"
+    ],
+    "mobile_devices": 3,
+    "policies": {
+      "api_controls.unconfigured_third_party_apps@ou:/": {
+        "accessLevel": "ACCESS_LEVEL_UNSPECIFIED"
+      },
+      "calendar.primary_calendar_max_allowed_external_sharing@ou:/": {
+        "maxAllowedExternalSharing": "EXTERNAL_FREE_BUSY_ONLY"
+      },
+      "chat.chat_external_spaces@ou:/": {
+        "domainAllowlistMode": "ALL_DOMAINS",
+        "enabled": "True"
+      },
+      "drive_and_docs.drive_for_desktop@ou:/": {
+        "allowDriveForDesktop": "True",
+        "restrictToAuthorizedDevices": "False"
+      },
+      "drive_and_docs.shared_drive_creation@ou:/": {
+        "allowExternalUserAccess": "True",
+        "allowManagersToOverrideSettings": "False",
+        "allowNonMemberAccess": "True"
+      },
+      "gmail.email_attachment_safety@ou:/": {
+        "anomalousAttachmentProtectionConsequence": "SPAM_FOLDER",
+        "enableAnomalousAttachmentProtection": "True",
+        "enableAttachmentWithScriptsProtection": "True",
+        "enableEncryptedAttachmentProtection": "True"
+      },
+      "gmail.spoofing_and_authentication@ou:/": {
+        "detectDomainNameSpoofing": "True",
+        "detectDomainSpoofingFromUnauthenticatedSenders": "True",
+        "detectEmployeeNameSpoofing": "True",
+        "detectGroupsSpoofing": "False",
+        "detectUnauthenticatedEmails": "False",
+        "domainSpoofingConsequence": "WARNING"
+      },
+      "groups_for_business.groups_sharing@ou:/": {
+        "collaborationCapability": "DOMAIN_USERS_ONLY",
+        "ownersCanAllowExternalMembers": "True",
+        "ownersCanAllowIncomingMailFromPublic": "True"
+      },
+      "photos.user_takeout@ou:/": {
+        "takeoutStatus": "ENABLED"
+      },
+      "security.password@ou:/": {
+        "allowReuse": "False",
+        "allowedStrength": "STRONG",
+        "enforceRequirementsAtLogin": "False",
+        "expirationDuration": "0s",
+        "maximumLength": "100",
+        "minimumLength": "8"
+      },
+      "security.session_controls@ou:/": {
+        "webSessionDuration": "1209600s"
+      },
+      "security.super_admin_account_recovery@ou:/": {
+        "enableAccountRecovery": "False"
+      },
+      "security.two_step_verification_device_trust@ou:/": {
+        "allowTrustingDevice": "True"
+      },
+      "security.two_step_verification_enforcement@group:groups/00fakegroup01": {
+        "enforcedFrom": "2026-01-01T08:00:00Z"
+      },
+      "security.two_step_verification_enforcement@ou:/": {
+        "enforcedFrom": "2026-02-10T08:00:00Z"
+      },
+      "security.two_step_verification_enforcement_factor@ou:/": {
+        "allowedSignInFactorSet": "ALL"
+      },
+      "takeout.service_status@ou:/": {
+        "serviceState": "ENABLED"
+      }
+    },
+    "public_files": {
+      "1FAKEpublic0001": "Team handbook",
+      "1FAKEpublic0002": "Price list",
+      "1FAKEpublic0003": "Draft budget 2026"
+    },
+    "risky_apps": [
+      "Acme Mail Assistant",
+      "Sample PDF Toolkit"
+    ],
+    "stale_devices": 1,
+    "super_admins": [
+      "admin@example.com",
+      "alex@example.com",
+      "gray@example.com"
+    ],
+    "users_active": [
+      "admin@example.com",
+      "alex@example.com",
+      "blake@example.com",
+      "casey@example.com",
+      "devon@example.com",
+      "emery@example.com",
+      "frankie@example.com",
+      "frontdesk@example.com",
+      "gray@example.com"
+    ],
+    "users_without_2sv": [
+      "casey@example.com",
+      "emery@example.com",
+      "frontdesk@example.com"
+    ]
+  },
+  "findings": [
+    {
+      "category": "Identity",
+      "count": 3,
+      "detail": "3 of 9 active users have no 2SV. Org-wide enforcement starts 2026-02-10 (8 days): they will be locked out.",
+      "edition_note": null,
+      "evidence": [
+        "casey@example.com",
+        "emery@example.com",
+        "frontdesk@example.com"
+      ],
+      "evidence_total": 3,
+      "id": "2sv-enrollment",
+      "recommendation": "Chase enrollment (passkeys count only once 2SV is turned on), or suspend unused accounts.",
+      "reference": "CIS Google Workspace Foundations Benchmark: 2-Step Verification",
+      "severity": "critical",
+      "status": "fail",
+      "title": "3 active user(s) not enrolled in 2SV"
+    },
+    {
+      "category": "Apps",
+      "count": null,
+      "detail": "Unconfigured third-party apps access level: ACCESS_LEVEL_UNSPECIFIED.",
+      "edition_note": "Available on every edition.",
+      "evidence": [],
+      "evidence_total": 0,
+      "id": "third-party-apps-policy",
+      "recommendation": "Security \u2192 API controls \u2192 Manage third-party app access: review the apps already used, mark the needed ones Trusted or Limited, then set unconfigured apps to 'Sign in with Google only' or block.",
+      "reference": "CIS Google Workspace Foundations Benchmark: API controls",
+      "severity": "high",
+      "status": "fail",
+      "title": "Any user can grant any third-party app access to company data"
+    },
+    {
+      "category": "Apps",
+      "count": 2,
+      "detail": "4 distinct apps were authorized in the token audit window; 2 have full Gmail, full Drive or admin scopes.",
+      "edition_note": null,
+      "evidence": [
+        "Acme Mail Assistant: 2 user(s), mail.google.com (FULL GMAIL)",
+        "Sample PDF Toolkit: 1 user(s), drive"
+      ],
+      "evidence_total": 2,
+      "id": "risky-apps",
+      "recommendation": "Review each app with its users; mark the needed ones Trusted or Limited and block the rest.",
+      "reference": "CIS Google Workspace Foundations Benchmark: API controls",
+      "severity": "high",
+      "status": "fail",
+      "title": "2 third-party app(s) hold high-risk scopes"
+    },
+    {
+      "category": "Sign-ins",
+      "count": 1,
+      "detail": "Google flagged these sign-ins or blocked sensitive actions.",
+      "edition_note": null,
+      "evidence": [
+        "2026-01-29T03:12 suspicious_login casey@example.com ZZ"
+      ],
+      "evidence_total": 1,
+      "id": "suspicious-logins",
+      "recommendation": "Confirm each with the user; reset password and revoke sessions for anything unexplained.",
+      "reference": "Google Admin: Login audit log",
+      "severity": "high",
+      "status": "fail",
+      "title": "1 suspicious sign-in or blocked risky-action event(s)"
+    },
+    {
+      "category": "Sign-ins",
+      "count": 1,
+      "detail": "Travel and VPNs explain most of these; an admin account in this list deserves a direct check.",
+      "edition_note": null,
+      "evidence": [
+        "alex@example.com (super admin): DE, US"
+      ],
+      "evidence_total": 1,
+      "id": "login-regions",
+      "recommendation": "Ask each user to confirm; check Security \u2192 Alert center for related alerts.",
+      "reference": "Google Admin: Login audit log",
+      "severity": "high",
+      "status": "fail",
+      "title": "1 account(s) signing in from several countries"
+    },
+    {
+      "category": "Identity",
+      "count": null,
+      "detail": "SMS and voice codes can be phished or SIM-swapped.",
+      "edition_note": "Security-key-only enforcement is available on every edition.",
+      "evidence": [],
+      "evidence_total": 0,
+      "id": "2sv-methods",
+      "recommendation": "Require security keys or passkeys at least for admins: put them in their own OU or group and set 'Only security key'.",
+      "reference": "CIS Google Workspace Foundations Benchmark: 2-Step Verification",
+      "severity": "medium",
+      "status": "fail",
+      "title": "Any 2SV method is allowed, including SMS and voice codes"
+    },
+    {
+      "category": "Identity",
+      "count": 1,
+      "detail": "Dormant and shared mailboxes keep working passwords nobody watches.",
+      "edition_note": null,
+      "evidence": [
+        "frontdesk@example.com (last sign-in 2025-06-01)"
+      ],
+      "evidence_total": 1,
+      "id": "dormant-users",
+      "recommendation": "Suspend or archive them, or convert shared mailboxes to Groups / delegated access.",
+      "reference": "CIS Google Workspace Foundations Benchmark: User account management",
+      "severity": "medium",
+      "status": "fail",
+      "title": "1 active account(s) with no sign-in for 90+ days"
+    },
+    {
+      "category": "Apps",
+      "count": 1,
+      "detail": "Domain-wide delegation lets a service account act as any user for the granted scopes.",
+      "edition_note": null,
+      "evidence": [
+        "2026-01-27 alex@example.com: Example Backup Service https://www.googleapis.com/auth/drive.readonly"
+      ],
+      "evidence_total": 1,
+      "id": "dwd-changes",
+      "recommendation": "Security \u2192 API controls \u2192 Domain-wide delegation: confirm each client and trim scopes.",
+      "reference": "CIS Google Workspace Foundations Benchmark: API controls",
+      "severity": "medium",
+      "status": "fail",
+      "title": "1 domain-wide delegation grant(s) in the audit window"
+    },
+    {
+      "category": "Drive",
+      "count": 3,
+      "detail": "Anyone who obtains the URL can open these files without signing in.",
+      "edition_note": null,
+      "evidence": [
+        "alex@example.com: 1 file(s)",
+        "blake@example.com: 1 file(s)",
+        "frankie@example.com: 1 file(s)"
+      ],
+      "evidence_total": 3,
+      "id": "drive-public-files",
+      "recommendation": "Ask owners to review drive_link_shared_full.csv; restrict links to the organization by default.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Drive sharing",
+      "severity": "medium",
+      "status": "fail",
+      "title": "3 company-owned file(s) open to anyone with the link"
+    },
+    {
+      "category": "Drive",
+      "count": 3,
+      "detail": "1 grant edit or higher rights; 1 go to personal mail domains.",
+      "edition_note": "Trust rules and Drive DLP are not available on Business Starter; use the standard sharing settings.",
+      "evidence": [
+        "example.org: 1 grant(s)",
+        "gmail.com: 1 grant(s)",
+        "example.net: 1 grant(s)"
+      ],
+      "evidence_total": 3,
+      "id": "drive-external-grants",
+      "recommendation": "Review drive_external_shares.csv with owners; turn on the warning when sharing outside the organization; consider an allowlist of trusted domains.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Drive sharing",
+      "severity": "medium",
+      "status": "fail",
+      "title": "3 sharing grant(s) to 3 outside domain(s)"
+    },
+    {
+      "category": "Gmail",
+      "count": null,
+      "detail": "Some protections are off, and others only show a warning banner.",
+      "edition_note": null,
+      "evidence": [
+        "detectUnauthenticatedEmails: off",
+        "detectGroupsSpoofing: off",
+        "domainSpoofingConsequence: warning only"
+      ],
+      "evidence_total": 3,
+      "id": "gmail-spoofing",
+      "recommendation": "Apps \u2192 Gmail \u2192 Safety \u2192 Spoofing and authentication: turn every check on and move suspicious mail to spam.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Gmail safety",
+      "severity": "medium",
+      "status": "fail",
+      "title": "Gmail spoofing and authentication protections are partial"
+    },
+    {
+      "category": "Identity",
+      "count": null,
+      "detail": "Minimum length 8 (recommend 12+); requirements not enforced at next sign-in.",
+      "edition_note": null,
+      "evidence": [
+        "minimum length 8 (recommend 12+)",
+        "requirements not enforced at next sign-in"
+      ],
+      "evidence_total": 2,
+      "id": "password-policy",
+      "recommendation": "Security \u2192 Authentication \u2192 Password management: minimum 12, enforce at next sign-in.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Password management",
+      "severity": "low",
+      "status": "fail",
+      "title": "Password policy is weaker than recommended"
+    },
+    {
+      "category": "Drive",
+      "count": null,
+      "detail": "New shared drives allow: allowNonMemberAccess, allowExternalUserAccess.",
+      "edition_note": null,
+      "evidence": [
+        "allowNonMemberAccess",
+        "allowExternalUserAccess"
+      ],
+      "evidence_total": 2,
+      "id": "shared-drive-settings",
+      "recommendation": "Apps \u2192 Drive and Docs \u2192 Sharing settings \u2192 Shared drive creation: tighten the defaults.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Drive sharing",
+      "severity": "low",
+      "status": "fail",
+      "title": "Shared drive defaults allow outside or non-member access"
+    },
+    {
+      "category": "Drive",
+      "count": null,
+      "detail": "Users can sync company files to personal, unmanaged computers.",
+      "edition_note": "Restricting to authorized devices needs advanced endpoint management (Business Plus and above).",
+      "evidence": [],
+      "evidence_total": 0,
+      "id": "drive-desktop",
+      "recommendation": "Restrict Drive for desktop to authorized devices where the edition allows it.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Drive and Docs",
+      "severity": "low",
+      "status": "fail",
+      "title": "Drive for desktop works on any computer"
+    },
+    {
+      "category": "Collaboration",
+      "count": null,
+      "detail": "Users can create or join spaces with any outside organization.",
+      "edition_note": null,
+      "evidence": [],
+      "evidence_total": 0,
+      "id": "chat-external",
+      "recommendation": "Apps \u2192 Google Chat \u2192 External Chat settings: restrict to allowlisted domains.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Google Chat",
+      "severity": "low",
+      "status": "fail",
+      "title": "External Chat spaces are open to every domain"
+    },
+    {
+      "category": "Collaboration",
+      "count": null,
+      "detail": "Owners can add external members; owners can accept mail from the public.",
+      "edition_note": null,
+      "evidence": [
+        "owners can add external members",
+        "owners can accept mail from the public"
+      ],
+      "evidence_total": 2,
+      "id": "groups-external",
+      "recommendation": "Apps \u2192 Google Groups for Business \u2192 Sharing settings: keep groups internal.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Groups for Business",
+      "severity": "low",
+      "status": "fail",
+      "title": "Google Groups can be opened to outsiders"
+    },
+    {
+      "category": "Data protection",
+      "count": 2,
+      "detail": "Takeout lets any user download a full copy of their account data.",
+      "edition_note": null,
+      "evidence": [
+        "photos",
+        "takeout"
+      ],
+      "evidence_total": 2,
+      "id": "takeout",
+      "recommendation": "Apps \u2192 Additional Google services \u2192 Takeout: turn off for users who don't need it.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Takeout",
+      "severity": "low",
+      "status": "fail",
+      "title": "Users can export data with Google Takeout"
+    },
+    {
+      "category": "Gmail",
+      "count": 2,
+      "detail": "Without an enforcing DMARC policy, anyone can send mail that appears to come from your domain.",
+      "edition_note": null,
+      "evidence": [
+        "example.com: no MTA-STS",
+        "example.com: no TLS-RPT"
+      ],
+      "evidence_total": 2,
+      "id": "mail-dns",
+      "recommendation": "Publish SPF and DKIM, then move DMARC from p=none to quarantine and reject with rua= reports; add MTA-STS and TLS-RPT.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Email authentication (SPF, DKIM, DMARC)",
+      "severity": "low",
+      "status": "fail",
+      "title": "Mail authentication DNS records are incomplete"
+    },
+    {
+      "category": "Devices",
+      "count": 2,
+      "detail": "Stale devices may still hold synced mail; unlocked ones expose it to anyone holding the phone.",
+      "edition_note": "Business Starter has basic mobile management only: no remote wipe of the whole device, no app management.",
+      "evidence": [
+        "no screen lock: blake@example.com iPhone 16",
+        "no sync since 2025-05-30: frontdesk@example.com iPhone 11"
+      ],
+      "evidence_total": 2,
+      "id": "mobile-devices",
+      "recommendation": "Remove stale devices from the account (Devices \u2192 Mobile), and require a screen lock.",
+      "reference": "CIS Google Workspace Foundations Benchmark: Mobile device management",
+      "severity": "low",
+      "status": "fail",
+      "title": "1 stale, 1 unlocked, 0 compromised mobile device(s) of 3"
+    },
+    {
+      "category": "Admin activity",
+      "count": 2,
+      "detail": "Role assignments and authentication or app-access setting changes.",
+      "edition_note": null,
+      "evidence": [
+        "2026-01-26 admin@example.com: ASSIGN_ROLE _SEED_ADMIN_ROLE gray@example.com",
+        "2025-12-15 admin@example.com: CHANGE_TWO_STEP_VERIFICATION_START_DATE"
+      ],
+      "evidence_total": 2,
+      "id": "admin-changes",
+      "recommendation": "Confirm each change was intended and made by the expected admin.",
+      "reference": "Google Admin: Admin audit log",
+      "severity": "info",
+      "status": "fail",
+      "title": "2 security-relevant admin change(s) in the audit window"
+    }
+  ],
+  "not_checked": [],
+  "passed": [
+    {
+      "category": "Identity",
+      "id": "super-admin-2sv",
+      "status": "pass",
+      "title": "Every super admin is enrolled in 2SV"
+    },
+    {
+      "category": "Identity",
+      "id": "2sv-enforced",
+      "status": "pass",
+      "title": "2SV enforcement configured at the root OU (from 2026-02-10)"
+    },
+    {
+      "category": "Identity",
+      "id": "super-admin-count",
+      "status": "pass",
+      "title": "3 super admins (2-4 recommended)"
+    },
+    {
+      "category": "Identity",
+      "id": "super-admin-recovery",
+      "status": "pass",
+      "title": "Super admin self-recovery is off"
+    },
+    {
+      "category": "Identity",
+      "id": "session-length",
+      "status": "pass",
+      "title": "Web session length 336 h"
+    },
+    {
+      "category": "Collaboration",
+      "id": "calendar-external",
+      "status": "pass",
+      "title": "External calendar sharing capped (EXTERNAL_FREE_BUSY_ONLY)"
+    },
+    {
+      "category": "Gmail",
+      "id": "gmail-attachments",
+      "status": "pass",
+      "title": "Gmail attachment protections are on and act on messages"
+    },
+    {
+      "category": "Devices",
+      "id": "chrome-browsers",
+      "status": "pass",
+      "title": "1 Chrome browser(s) enrolled"
+    }
+  ],
+  "schema": 1,
+  "snapshot_date": "2026-02-02"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "gws-audit-kit",
+  "description": "Read-only Google Workspace security audit tools for Claude Code.",
+  "owner": {
+    "name": "skilledDragoncorp",
+    "url": "https://github.com/skilledDragoncorp"
+  },
+  "plugins": [
+    {
+      "name": "gws-audit",
+      "source": "./",
+      "description": "Read-only Google Workspace security audit built on GAM7, with a ranked gap report and snapshot diffs."
+    }
+  ]
+}

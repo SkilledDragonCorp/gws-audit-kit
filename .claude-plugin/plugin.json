@@ -1,0 +1,13 @@
+{
+  "name": "gws-audit",
+  "version": "0.1.0",
+  "description": "Read-only Google Workspace security audit built on GAM7: guided setup (read-only OAuth, keyless service account, Drive metadata-only delegation), a ranked gap report with edition-aware notes, and diffs between snapshots.",
+  "author": {
+    "name": "skilledDragoncorp",
+    "url": "https://github.com/skilledDragoncorp"
+  },
+  "homepage": "https://github.com/skilledDragoncorp/gws-audit-kit",
+  "repository": "https://github.com/skilledDragoncorp/gws-audit-kit",
+  "license": "MIT",
+  "keywords": ["google-workspace", "gam", "security", "audit", "cis", "read-only"]
+}

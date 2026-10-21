@@ -1,0 +1,10 @@
+name,actor.email,id.time,networkInfo.regionCode,login_type,is_suspicious
+login_success,admin@example.com,2026-01-20T08:00:00Z,US,google_password,False
+login_success,alex@example.com,2026-01-20T08:00:00Z,US,google_password,False
+login_success,blake@example.com,2026-01-20T08:00:00Z,US,google_password,False
+login_success,casey@example.com,2026-01-20T08:00:00Z,US,google_password,False
+login_success,devon@example.com,2026-01-20T08:00:00Z,US,google_password,False
+login_success,frankie@example.com,2026-01-20T08:00:00Z,US,google_password,False
+login_success,alex@example.com,2026-01-21T08:00:00Z,DE,google_password,False
+login_failure,casey@example.com,2026-01-22T08:00:00Z,US,google_password,False
+suspicious_login,casey@example.com,2026-01-29T03:12:00Z,ZZ,google_password,True

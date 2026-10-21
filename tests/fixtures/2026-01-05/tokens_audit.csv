@@ -1,0 +1,6 @@
+name,actor.email,app_name,client_id,client_type,id.time,scope
+authorize,alex@example.com,Google Chrome,100000000000-fake.apps.googleusercontent.com,NATIVE_DESKTOP,2026-01-03T10:00:00Z,https://www.googleapis.com/auth/drive
+authorize,blake@example.com,Acme Mail Assistant,100000000001-fake.apps.googleusercontent.com,WEB,2026-01-04T10:00:00Z,https://mail.google.com/ openid
+authorize,casey@example.com,Acme Mail Assistant,100000000001-fake.apps.googleusercontent.com,WEB,2026-01-04T11:00:00Z,https://mail.google.com/
+authorize,devon@example.com,Example Scheduler,100000000002-fake.apps.googleusercontent.com,WEB,2025-12-20T10:00:00Z,https://www.googleapis.com/auth/calendar.readonly
+revoke,devon@example.com,Example Scheduler,100000000002-fake.apps.googleusercontent.com,WEB,2026-01-05T09:00:00Z,

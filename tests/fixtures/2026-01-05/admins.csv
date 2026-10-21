@@ -1,0 +1,3 @@
+roleAssignmentId,roleId,role,assignedTo,assignedToUser,scopeType
+fake-ra-1,fake-role-1,_SEED_ADMIN_ROLE,100000000000000000001,admin@example.com,CUSTOMER
+fake-ra-2,fake-role-1,_SEED_ADMIN_ROLE,100000000000000000002,alex@example.com,CUSTOMER
