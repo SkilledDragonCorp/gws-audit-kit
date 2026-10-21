@@ -11,7 +11,9 @@ What you get from one run:
 - `findings.json` and a ranked `gap-report.md` in the style of the CIS Google Workspace Foundations Benchmark and Google's small-business security checklist, with **edition-aware notes** (what Business Starter can't do, for example)
 - `diff.md` against the previous snapshot: new admins, new risky apps, 2SV regressions, newly public files, changed policies
 
-See a [sample report](examples/sample-gap-report.md) and [sample diff](examples/sample-diff.md). Both use fake data only.
+- optionally, `report.html`: a **visual report** (severity tiles, chart by area, finding cards, changes since last time). It's a self-contained page that opens in your browser and never uploads anything. The Claude Code skill offers it when the gap report is done.
+
+See a [sample report](examples/sample-gap-report.md), [sample diff](examples/sample-diff.md) and [sample visual report](examples/sample-report.html) (download and open it). All use fake data only.
 
 ## Threat model: why read-only
 
@@ -69,6 +71,7 @@ A run takes about 10 minutes for 25 users, mostly the Drive inventory. It writes
 | `dns.txt` | SPF, DMARC, MTA-STS and TLS-RPT records |
 | `findings.json`, `gap-report.md` | Ranked findings |
 | `diff.md` | Changes since the previous snapshot |
+| `report.html` | Visual report, only when you ask for it: `python -I tools/render_html.py <snapshot> --previous <older_snapshot>` |
 
 Re-run the analysis without pulling again:
 
@@ -126,15 +129,6 @@ While the skill is active, read-only GAM verbs (`print`, `show`, `report`, `info
 
 The full catalog with edition notes is in [checks.md](skills/gws-audit/references/checks.md).
 
-## Development
-
-```bash
-python -I tests/make_fixtures.py          # regenerate the fake snapshots
-python -m unittest discover -s tests      # run the tests
-```
-
-Everything under `tests/fixtures/` and `examples/` is synthetic and uses `example.com` (RFC 2606). Never add real tenant data.
-
 ## Roadmap
 
 1. **Now:** manual runs + Claude Code analysis.
@@ -143,7 +137,7 @@ Everything under `tests/fixtures/` and `examples/` is synthetic and uses `exampl
 
 ## Contributing
 
-Issues and pull requests are welcome. Keep the kit read-only: new checks must work from the existing read-only scopes, or document clearly which additional **read-only** scope they need.
+Issues and pull requests are welcome. Keep the kit read-only, and never add real tenant data. See [CONTRIBUTING.md](CONTRIBUTING.md) for running the tests, testing the plugin and releasing.
 
 ## Credits
 

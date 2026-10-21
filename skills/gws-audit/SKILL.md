@@ -99,6 +99,18 @@ Evidence rules: name accounts only where the admin must act on them (for example
 
 Finally, tell the admin where the report is, the top three actions, and anything you could not check.
 
+## Offer a visual report
+
+Then ask: **"Want a visual version of this report too? It's a local web page with charts that opens in your browser; nothing gets uploaded."** If they say yes:
+
+```bash
+python -I "${CLAUDE_PLUGIN_ROOT}/tools/render_html.py" <snapshot> --previous <previous_snapshot>
+```
+
+Leave out `--previous` on a first run. It writes `<snapshot>/report.html`: severity tiles with the change since last time, a chart by area, every finding as a card (new ones flagged) with evidence folded away, then what's already good. Open it for them with `start "" <path>` (Windows Git Bash), `open <path>` (macOS) or `xdg-open <path>` (Linux).
+
+**Keep it local.** The page holds the same sensitive details as the gap report. Never publish it as an artifact, upload it, attach it to a chat or send it to any web service, and don't offer to. If the admin wants to share it, remind them it contains user emails and security weaknesses, and leave the sharing to them.
+
 ## Compare with the previous snapshot
 
 When asked "what changed", run `${CLAUDE_PLUGIN_ROOT}/tools/diff.py` on the two most recent snapshot folders (by date name) and summarize: regressions first, then improvements, then policy changes. If an older snapshot has no `findings.json`, run `analyze.py` on it first.

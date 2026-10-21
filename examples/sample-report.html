@@ -1,0 +1,147 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workspace audit 2026-02-02</title><style>
+:root { --bg:#f7f7f5; --card:#fff; --text:#1d1d1b; --muted:#6b6b66; --line:#e3e2dd;
+  --critical:#b42318; --high:#d9480f; --medium:#c47f00; --low:#3b7d3b; --info:#3b6ea5; --pass:#2f7d4f; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#161615; --card:#1f1f1d; --text:#ecebe6; --muted:#a3a29b; --line:#33332f;
+    --critical:#f97066; --high:#fd8a4b; --medium:#f5b83d; --low:#7cc47c; --info:#7fb0e8; --pass:#6fcf97; }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+main { max-width:980px; margin:0 auto; padding:32px 16px 64px; }
+h1 { font-size:26px; margin:0 0 4px; } h2 { font-size:18px; margin:36px 0 12px; }
+.meta { color:var(--muted); margin:0 0 24px; }
+.tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; }
+.tile { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px; }
+.tile .n { font-size:30px; font-weight:700; } .tile .l { color:var(--muted); font-size:13px; }
+.tile .d { font-size:12px; color:var(--muted); }
+.bar { display:flex; height:14px; border-radius:7px; overflow:hidden; background:var(--line); margin:16px 0 6px; }
+.bar span { display:block; height:100%; }
+.legend { display:flex; flex-wrap:wrap; gap:14px; font-size:13px; color:var(--muted); }
+.dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:5px; vertical-align:baseline; }
+table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+th, td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--line); font-size:14px; }
+th { color:var(--muted); font-weight:600; }
+.cat-bar { display:flex; height:10px; min-width:120px; border-radius:5px; overflow:hidden; background:var(--line); }
+.card { background:var(--card); border:1px solid var(--line); border-left:5px solid var(--sev); border-radius:10px; padding:14px 16px; margin:10px 0; }
+.card h3 { margin:0 0 6px; font-size:16px; }
+.pill { display:inline-block; font-size:12px; font-weight:600; color:#fff; background:var(--sev); border-radius:999px; padding:1px 9px; margin-right:6px; }
+.tag { font-size:12px; color:var(--muted); }
+.new { font-size:12px; font-weight:700; color:var(--critical); margin-left:6px; }
+.card p { margin:6px 0; } .fix { font-weight:600; }
+.note { color:var(--muted); font-size:13px; }
+details { margin-top:6px; } summary { cursor:pointer; color:var(--muted); font-size:13px; }
+details ul { margin:6px 0 0; padding-left:20px; font-size:13px; word-break:break-word; }
+ul.plain { padding-left:20px; }
+footer { margin-top:40px; color:var(--muted); font-size:12px; }
+</style></head><body><main>
+<h1>Google Workspace security audit</h1>
+<p class="meta">Snapshot 2026-02-02 · starter edition · compared with 2026-01-05</p>
+<div class="tiles">
+<div class="tile" style="border-top:4px solid var(--critical)"><div class="n">1</div><div class="l">Critical</div><div class="d">+1 since last</div></div>
+<div class="tile" style="border-top:4px solid var(--high)"><div class="n">4</div><div class="l">High</div><div class="d">no change</div></div>
+<div class="tile" style="border-top:4px solid var(--medium)"><div class="n">6</div><div class="l">Medium</div><div class="d">-2 since last</div></div>
+<div class="tile" style="border-top:4px solid var(--low)"><div class="n">8</div><div class="l">Low</div><div class="d">+1 since last</div></div>
+<div class="tile" style="border-top:4px solid var(--info)"><div class="n">1</div><div class="l">Info</div><div class="d">-1 since last</div></div>
+<div class="tile" style="border-top:4px solid var(--pass)"><div class="n">8</div><div class="l">Already good</div></div></div>
+<div class="bar"><span style="width:5.00%;background:var(--critical)" title="Critical: 1"></span><span style="width:20.00%;background:var(--high)" title="High: 4"></span><span style="width:30.00%;background:var(--medium)" title="Medium: 6"></span><span style="width:40.00%;background:var(--low)" title="Low: 8"></span><span style="width:5.00%;background:var(--info)" title="Info: 1"></span></div>
+<div class="legend"><span><span class="dot" style="background:var(--critical)"></span>Critical</span><span><span class="dot" style="background:var(--high)"></span>High</span><span><span class="dot" style="background:var(--medium)"></span>Medium</span><span><span class="dot" style="background:var(--low)"></span>Low</span><span><span class="dot" style="background:var(--info)"></span>Info</span></div>
+<h2>By area</h2><table><tr><th>Area</th><th>Open</th><th>Good</th><th></th></tr>
+<tr><td>Drive</td><td>4</td><td>0</td><td><div class="cat-bar"><span style="width:50.00%;background:var(--medium)"></span><span style="width:50.00%;background:var(--low)"></span></div></td></tr>
+<tr><td>Identity</td><td>4</td><td>5</td><td><div class="cat-bar"><span style="width:11.11%;background:var(--critical)"></span><span style="width:22.22%;background:var(--medium)"></span><span style="width:11.11%;background:var(--low)"></span><span style="width:55.56%;background:var(--pass)"></span></div></td></tr>
+<tr><td>Apps</td><td>3</td><td>0</td><td><div class="cat-bar"><span style="width:66.67%;background:var(--high)"></span><span style="width:33.33%;background:var(--medium)"></span></div></td></tr>
+<tr><td>Collaboration</td><td>2</td><td>1</td><td><div class="cat-bar"><span style="width:66.67%;background:var(--low)"></span><span style="width:33.33%;background:var(--pass)"></span></div></td></tr>
+<tr><td>Gmail</td><td>2</td><td>1</td><td><div class="cat-bar"><span style="width:33.33%;background:var(--medium)"></span><span style="width:33.33%;background:var(--low)"></span><span style="width:33.33%;background:var(--pass)"></span></div></td></tr>
+<tr><td>Sign-ins</td><td>2</td><td>0</td><td><div class="cat-bar"><span style="width:100.00%;background:var(--high)"></span></div></td></tr>
+<tr><td>Admin activity</td><td>1</td><td>0</td><td><div class="cat-bar"><span style="width:100.00%;background:var(--info)"></span></div></td></tr>
+<tr><td>Data protection</td><td>1</td><td>0</td><td><div class="cat-bar"><span style="width:100.00%;background:var(--low)"></span></div></td></tr>
+<tr><td>Devices</td><td>1</td><td>1</td><td><div class="cat-bar"><span style="width:50.00%;background:var(--low)"></span><span style="width:50.00%;background:var(--pass)"></span></div></td></tr>
+</table>
+<h2>Since last time</h2><ul class="plain">
+<li><strong>2</strong> new finding(s): 1 suspicious sign-in or blocked risky-action event(s), 1 domain-wide delegation grant(s) in the audit window</li>
+<li><strong>3</strong> resolved: Super admins can recover their own accounts, Calendars can be shared outside with edit or manage rights, No Chrome browsers are enrolled for management</li></ul>
+<h2>Findings</h2>
+<div class="card" style="--sev:var(--critical)"><h3>1. 3 active user(s) not enrolled in 2SV</h3><span class="pill">Critical</span><span class="tag">Identity</span><p>3 of 9 active users have no 2SV. Org-wide enforcement starts 2026-02-10 (8 days): they will be locked out.</p><p class="fix">Fix: Chase enrollment (passkeys count only once 2SV is turned on), or suspend unused accounts.</p>
+<details><summary>Evidence (3)</summary><ul><li>casey@example.com</li><li>emery@example.com</li><li>frontdesk@example.com</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: 2-Step Verification</p>
+</div>
+<div class="card" style="--sev:var(--high)"><h3>2. Any user can grant any third-party app access to company data</h3><span class="pill">High</span><span class="tag">Apps</span><p>Unconfigured third-party apps access level: ACCESS_LEVEL_UNSPECIFIED.</p><p class="fix">Fix: Security → API controls → Manage third-party app access: review the apps already used, mark the needed ones Trusted or Limited, then set unconfigured apps to &#x27;Sign in with Google only&#x27; or block.</p>
+<p class="note">Edition note: Available on every edition.</p>
+<p class="note">CIS Google Workspace Foundations Benchmark: API controls</p>
+</div>
+<div class="card" style="--sev:var(--high)"><h3>3. 2 third-party app(s) hold high-risk scopes</h3><span class="pill">High</span><span class="tag">Apps</span><p>4 distinct apps were authorized in the token audit window; 2 have full Gmail, full Drive or admin scopes.</p><p class="fix">Fix: Review each app with its users; mark the needed ones Trusted or Limited and block the rest.</p>
+<details><summary>Evidence (2)</summary><ul><li>Acme Mail Assistant: 2 user(s), mail.google.com (FULL GMAIL)</li><li>Sample PDF Toolkit: 1 user(s), drive</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: API controls</p>
+</div>
+<div class="card" style="--sev:var(--high)"><h3>4. 1 suspicious sign-in or blocked risky-action event(s)<span class="new">NEW</span></h3><span class="pill">High</span><span class="tag">Sign-ins</span><p>Google flagged these sign-ins or blocked sensitive actions.</p><p class="fix">Fix: Confirm each with the user; reset password and revoke sessions for anything unexplained.</p>
+<details><summary>Evidence (1)</summary><ul><li>2026-01-29T03:12 suspicious_login casey@example.com ZZ</li></ul></details>
+<p class="note">Google Admin: Login audit log</p>
+</div>
+<div class="card" style="--sev:var(--high)"><h3>5. 1 account(s) signing in from several countries</h3><span class="pill">High</span><span class="tag">Sign-ins</span><p>Travel and VPNs explain most of these; an admin account in this list deserves a direct check.</p><p class="fix">Fix: Ask each user to confirm; check Security → Alert center for related alerts.</p>
+<details><summary>Evidence (1)</summary><ul><li>alex@example.com (super admin): DE, US</li></ul></details>
+<p class="note">Google Admin: Login audit log</p>
+</div>
+<div class="card" style="--sev:var(--medium)"><h3>6. Any 2SV method is allowed, including SMS and voice codes</h3><span class="pill">Medium</span><span class="tag">Identity</span><p>SMS and voice codes can be phished or SIM-swapped.</p><p class="fix">Fix: Require security keys or passkeys at least for admins: put them in their own OU or group and set &#x27;Only security key&#x27;.</p>
+<p class="note">Edition note: Security-key-only enforcement is available on every edition.</p>
+<p class="note">CIS Google Workspace Foundations Benchmark: 2-Step Verification</p>
+</div>
+<div class="card" style="--sev:var(--medium)"><h3>7. 1 active account(s) with no sign-in for 90+ days</h3><span class="pill">Medium</span><span class="tag">Identity</span><p>Dormant and shared mailboxes keep working passwords nobody watches.</p><p class="fix">Fix: Suspend or archive them, or convert shared mailboxes to Groups / delegated access.</p>
+<details><summary>Evidence (1)</summary><ul><li>frontdesk@example.com (last sign-in 2025-06-01)</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: User account management</p>
+</div>
+<div class="card" style="--sev:var(--medium)"><h3>8. 1 domain-wide delegation grant(s) in the audit window<span class="new">NEW</span></h3><span class="pill">Medium</span><span class="tag">Apps</span><p>Domain-wide delegation lets a service account act as any user for the granted scopes.</p><p class="fix">Fix: Security → API controls → Domain-wide delegation: confirm each client and trim scopes.</p>
+<details><summary>Evidence (1)</summary><ul><li>2026-01-27 alex@example.com: Example Backup Service https://www.googleapis.com/auth/drive.readonly</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: API controls</p>
+</div>
+<div class="card" style="--sev:var(--medium)"><h3>9. 3 company-owned file(s) open to anyone with the link</h3><span class="pill">Medium</span><span class="tag">Drive</span><p>Anyone who obtains the URL can open these files without signing in.</p><p class="fix">Fix: Ask owners to review drive_link_shared_full.csv; restrict links to the organization by default.</p>
+<details><summary>Evidence (3)</summary><ul><li>alex@example.com: 1 file(s)</li><li>blake@example.com: 1 file(s)</li><li>frankie@example.com: 1 file(s)</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: Drive sharing</p>
+</div>
+<div class="card" style="--sev:var(--medium)"><h3>10. 3 sharing grant(s) to 3 outside domain(s)</h3><span class="pill">Medium</span><span class="tag">Drive</span><p>1 grant edit or higher rights; 1 go to personal mail domains.</p><p class="fix">Fix: Review drive_external_shares.csv with owners; turn on the warning when sharing outside the organization; consider an allowlist of trusted domains.</p>
+<p class="note">Edition note: Trust rules and Drive DLP are not available on Business Starter; use the standard sharing settings.</p>
+<details><summary>Evidence (3)</summary><ul><li>example.org: 1 grant(s)</li><li>gmail.com: 1 grant(s)</li><li>example.net: 1 grant(s)</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: Drive sharing</p>
+</div>
+<div class="card" style="--sev:var(--medium)"><h3>11. Gmail spoofing and authentication protections are partial</h3><span class="pill">Medium</span><span class="tag">Gmail</span><p>Some protections are off, and others only show a warning banner.</p><p class="fix">Fix: Apps → Gmail → Safety → Spoofing and authentication: turn every check on and move suspicious mail to spam.</p>
+<details><summary>Evidence (3)</summary><ul><li>detectUnauthenticatedEmails: off</li><li>detectGroupsSpoofing: off</li><li>domainSpoofingConsequence: warning only</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: Gmail safety</p>
+</div>
+<div class="card" style="--sev:var(--low)"><h3>12. Password policy is weaker than recommended</h3><span class="pill">Low</span><span class="tag">Identity</span><p>Minimum length 8 (recommend 12+); requirements not enforced at next sign-in.</p><p class="fix">Fix: Security → Authentication → Password management: minimum 12, enforce at next sign-in.</p>
+<details><summary>Evidence (2)</summary><ul><li>minimum length 8 (recommend 12+)</li><li>requirements not enforced at next sign-in</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: Password management</p>
+</div>
+<div class="card" style="--sev:var(--low)"><h3>13. Shared drive defaults allow outside or non-member access</h3><span class="pill">Low</span><span class="tag">Drive</span><p>New shared drives allow: allowNonMemberAccess, allowExternalUserAccess.</p><p class="fix">Fix: Apps → Drive and Docs → Sharing settings → Shared drive creation: tighten the defaults.</p>
+<details><summary>Evidence (2)</summary><ul><li>allowNonMemberAccess</li><li>allowExternalUserAccess</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: Drive sharing</p>
+</div>
+<div class="card" style="--sev:var(--low)"><h3>14. Drive for desktop works on any computer</h3><span class="pill">Low</span><span class="tag">Drive</span><p>Users can sync company files to personal, unmanaged computers.</p><p class="fix">Fix: Restrict Drive for desktop to authorized devices where the edition allows it.</p>
+<p class="note">Edition note: Restricting to authorized devices needs advanced endpoint management (Business Plus and above).</p>
+<p class="note">CIS Google Workspace Foundations Benchmark: Drive and Docs</p>
+</div>
+<div class="card" style="--sev:var(--low)"><h3>15. External Chat spaces are open to every domain</h3><span class="pill">Low</span><span class="tag">Collaboration</span><p>Users can create or join spaces with any outside organization.</p><p class="fix">Fix: Apps → Google Chat → External Chat settings: restrict to allowlisted domains.</p>
+<p class="note">CIS Google Workspace Foundations Benchmark: Google Chat</p>
+</div>
+<div class="card" style="--sev:var(--low)"><h3>16. Google Groups can be opened to outsiders</h3><span class="pill">Low</span><span class="tag">Collaboration</span><p>Owners can add external members; owners can accept mail from the public.</p><p class="fix">Fix: Apps → Google Groups for Business → Sharing settings: keep groups internal.</p>
+<details><summary>Evidence (2)</summary><ul><li>owners can add external members</li><li>owners can accept mail from the public</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: Groups for Business</p>
+</div>
+<div class="card" style="--sev:var(--low)"><h3>17. Users can export data with Google Takeout</h3><span class="pill">Low</span><span class="tag">Data protection</span><p>Takeout lets any user download a full copy of their account data.</p><p class="fix">Fix: Apps → Additional Google services → Takeout: turn off for users who don&#x27;t need it.</p>
+<details><summary>Evidence (2)</summary><ul><li>photos</li><li>takeout</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: Takeout</p>
+</div>
+<div class="card" style="--sev:var(--low)"><h3>18. Mail authentication DNS records are incomplete</h3><span class="pill">Low</span><span class="tag">Gmail</span><p>Without an enforcing DMARC policy, anyone can send mail that appears to come from your domain.</p><p class="fix">Fix: Publish SPF and DKIM, then move DMARC from p=none to quarantine and reject with rua= reports; add MTA-STS and TLS-RPT.</p>
+<details><summary>Evidence (2)</summary><ul><li>example.com: no MTA-STS</li><li>example.com: no TLS-RPT</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: Email authentication (SPF, DKIM, DMARC)</p>
+</div>
+<div class="card" style="--sev:var(--low)"><h3>19. 1 stale, 1 unlocked, 0 compromised mobile device(s) of 3</h3><span class="pill">Low</span><span class="tag">Devices</span><p>Stale devices may still hold synced mail; unlocked ones expose it to anyone holding the phone.</p><p class="fix">Fix: Remove stale devices from the account (Devices → Mobile), and require a screen lock.</p>
+<p class="note">Edition note: Business Starter has basic mobile management only: no remote wipe of the whole device, no app management.</p>
+<details><summary>Evidence (2)</summary><ul><li>no screen lock: blake@example.com iPhone 16</li><li>no sync since 2025-05-30: frontdesk@example.com iPhone 11</li></ul></details>
+<p class="note">CIS Google Workspace Foundations Benchmark: Mobile device management</p>
+</div>
+<div class="card" style="--sev:var(--info)"><h3>20. 2 security-relevant admin change(s) in the audit window</h3><span class="pill">Info</span><span class="tag">Admin activity</span><p>Role assignments and authentication or app-access setting changes.</p><p class="fix">Fix: Confirm each change was intended and made by the expected admin.</p>
+<details><summary>Evidence (2)</summary><ul><li>2026-01-26 admin@example.com: ASSIGN_ROLE _SEED_ADMIN_ROLE gray@example.com</li><li>2025-12-15 admin@example.com: CHANGE_TWO_STEP_VERIFICATION_START_DATE</li></ul></details>
+<p class="note">Google Admin: Admin audit log</p>
+</div>
+<h2>Already good</h2><ul class="plain"><li>Every super admin is enrolled in 2SV</li><li>2SV enforcement configured at the root OU (from 2026-02-10)</li><li>3 super admins (2-4 recommended)</li><li>Super admin self-recovery is off</li><li>Web session length 336 h</li><li>External calendar sharing capped (EXTERNAL_FREE_BUSY_ONLY)</li><li>Gmail attachment protections are on and act on messages</li><li>1 Chrome browser(s) enrolled</li></ul>
+<footer>Generated locally by gws-audit-kit. Contains sensitive tenant details: keep it with the snapshot and don't upload it.</footer></main></body></html>

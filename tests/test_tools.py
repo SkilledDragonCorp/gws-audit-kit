@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.join(HERE, "..", "tools"))
 import analyze  # noqa: E402
 import diff  # noqa: E402
 import drive_inventory  # noqa: E402
+import render_html  # noqa: E402
 
 A = os.path.join(HERE, "fixtures", "2026-01-05")
 B = os.path.join(HERE, "fixtures", "2026-02-02")
@@ -82,6 +83,23 @@ class DiffTest(unittest.TestCase):
         self.assertIn("super-admin-recovery", ids(prev))
         self.assertIn("Super admins can recover their own accounts", text)
         self.assertIn("calendar.primary_calendar_max_allowed_external_sharing@ou:/", text)
+
+
+class RenderHtmlTest(unittest.TestCase):
+    def test_page_is_self_contained_and_escaped(self):
+        prev, cur = analyze.analyze(A, "starter"), analyze.analyze(B, "starter")
+        cur["findings"][0]["detail"] = "<script>alert(1)</script>"
+        page = render_html.render(cur, prev)
+        self.assertNotIn("<script>alert(1)</script>", page)
+        self.assertIn("&lt;script&gt;", page)
+        self.assertNotIn("src=", page)
+        self.assertNotIn("http://", page)
+        self.assertIn("Sample PDF Toolkit", page)
+        self.assertIn("NEW", page)
+
+    def test_first_run_without_previous(self):
+        page = render_html.render(analyze.analyze(A, "starter"))
+        self.assertNotIn("Since last time", page)
 
 
 class InternalDomainTest(unittest.TestCase):
