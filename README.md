@@ -50,7 +50,7 @@ Follow [docs/setup.md](docs/setup.md). Short version:
 4. Keyless service account: Token Creator role, isolated gcloud login, `key_type: signjwt`.
 5. Domain-wide delegation with `drive.metadata.readonly` only.
 
-Or open this repo in Claude Code and ask: **"set up the Workspace audit"**. The `gws-audit` skill checks what's already done and walks you through the rest one step at a time.
+Or open this repo in Claude Code and ask: **"set up the Workspace audit"**. The `gws-audit` skill checks what's already done and walks you through the rest one step at a time. Opening the checkout loads that skill from `.claude/skills/gws-audit` (the same files as `skills/gws-audit`).
 
 ## Usage
 
